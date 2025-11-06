@@ -2,7 +2,7 @@
 
 <p align="center">
   <b>Um quiz dinâmico e interativo para o estudo das disciplinas exigidas pela ANAC</b><br>
-  <sub>Desenvolvido por <a href="https://github.com/IsmaelBrandao">Ismael Brandão</a></sub>
+  <sub>Desenvolvido por <a href="https://ismaelbrandao.github.io/Quiz-Preparatorio-ANAC">Ismael Brandão</a></sub>
 </p>
 
 ---
