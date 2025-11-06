@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plataforma de Quizzes - Aviação</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="menu-container">
+        <h1>✈️ Plataforma de Quizzes ANAC</h1>
+        <p class="subtitle">Escolha um módulo para iniciar sua preparação.</p>
+
+        <div class="module-grid">
+            
+            <div class="module-card aeronauta">
+                <div class="card-icon">🧑‍✈️</div>
+                <h3>Regulamentação do Aeronauta</h3>
+                <p>Lei do Aeronauta, jornada de trabalho, tipos de tripulação, limites de voo e legislação.</p>
+                <div class="card-buttons">
+                    <button onclick="startQuiz('aeronauta_nivel1')">Nível 1</button>
+                    <button onclick="startQuiz('aeronauta_nivel2')">Nível 2</button>
+                </div>
+            </div>
+
+            <div class="module-card fisiologia">
+                <div class="card-icon">🧬</div>
+                <h3>Aspectos Fisiológicos</h3>
+                <p>Hipóxia, disbarismos, leis dos gases, desorientação espacial e os efeitos da altitude no corpo.</p>
+                <div class="card-buttons">
+                    <button onclick="startQuiz('fisiologia_nivel1')">Nível 1</button>
+                    <button onclick="startQuiz('fisiologia_nivel2')">Nível 2</button>
+                </div>
+            </div>
+
+            <div class="module-card emergencia">
+                <div class="card-icon">🚨</div>
+                <h3>Emergência a Bordo</h3>
+                <p>Equipamentos (coletes, slides, ELT), evacuação, despressurização e cenários de emergência.</p>
+                <div class="card-buttons">
+                    <button onclick="startQuiz('emergencia_nivel1')">Nível 1</button>
+                    <button onclick="startQuiz('emergencia_nivel2')">Nível 2</button>
+                </div>
+            </div>
+
+            <div class="module-card combate-fogo">
+                <div class="card-icon">🔥</div>
+                <h3>Combate ao Fogo</h3>
+                <p>Tetraedro do fogo, classes de incêndio (A, B, C, K) e agentes extintores (Halon, Água).</p>
+                <div class="card-buttons">
+                    <button onclick="startQuiz('combate_fogo')">Módulo Único</button>
+                </div>
+            </div>
+
+            <div class="module-card meteorologia">
+                <div class="card-icon">🌦️</div>
+                <h3>Meteorologia Aeronáutica</h3>
+                <p>Interprete METAR/TAF, nuvens, frentes, trovoadas, formação de gelo e fenômenos em rota.</p>
+                <div class="card-buttons">
+                    <button onclick="startQuiz('meteorologia_nivel1')">Nível 1</button>
+                    <button onclick="startQuiz('meteorologia_nivel2')">Nível 2</button>
+                </div>
+            </div>
+            
+            <div class="module-card emergencia-detalhada">
+                <div class="card-icon">🧯</div>
+                <h3>Procedimentos Detalhados</h3>
+                <p>Foco em tópicos específicos de emergência, fisiologia e primeiros socorros (RCP, DEA).</p>
+                <div class="card-buttons">
+                    <button onclick="startQuiz('emergencia_detalhada')">Emergência</button>
+                    <button onclick="startQuiz('fisiologia_avancada')">Fisiologia</button>
+                    <button onclick="startQuiz('fisiologia_avancada_2')">Primeiros Socorros</button>
+                </div>
+            </div>
+
+            <div class="module-card sobrevivencia">
+                <div class="card-icon">🌍</div>
+                <h3>Sobrevivência</h3>
+                <p>Psicologia, peçonhentos, mar, terra, sinalização, orientação e primeiros socorros.</p>
+                <div class="card-buttons">
+                    <button onclick="startQuiz('sobrevivencia_1')">Nv. 1 (Peçonhentos)</button>
+                    <button onclick="startQuiz('sobrevivencia_2')">Nv. 2 (Mar)</button>
+                    <button onclick="startQuiz('sobrevivencia_3')">Nv. 3 (Terra)</button>
+                    <button onclick="startQuiz('sobrevivencia_4')">Nv. 4 (Orientação)</button>
+                    <button onclick="startQuiz('sobrevivencia_5')">Nv. 5 (Socorros)</button>
+                    <button onclick="startQuiz('sobrevivencia_6')">Nv. 6 (Psicologia)</button>
+                </div>
+            </div>
+
+            <div class="module-card rpa-prep">
+                <div class="card-icon">🛰️</div>
+                <h3>Preparatório Prova RPA</h3>
+                <p>Simulado com questões essenciais de Regulamentação e Direito para a prova de RPA.</p>
+                <div class="card-buttons">
+                    <button onclick="startQuiz('prova_rpa')">Módulo Único</button>
+                </div>
+            </div>
+
+        </div> </div> <div id="quiz-container" class="hidden">
+        <div id="quiz-header">
+            <button id="header-back-to-menu-btn" onclick="backToMenu()" title="Voltar ao Menu">☰</button>
+            <h1 id="quiz-title"></h1>
+        </div>
+
+        <div id="progress-container">
+            <div id="progress-bar"></div>
+        </div>
+
+        <div id="quiz-body"></div>
+
+        <div id="navigation">
+            <button id="prev-btn" class="nav-btn" onclick="prevQuestion()">Anterior</button>
+            <span id="question-counter"></span>
+            <button id="next-btn" class="nav-btn" onclick="nextQuestion()">Próximo</button>
+        </div>
+
+        <div id="results" class="hidden">
+            <h2 id="results-title"></h2>
+            <p id="score-text"></p>
+            <div id="action-buttons">
+                <button id="back-to-menu-btn-results" class="action-btn" onclick="backToMenu()">Voltar ao Menu</button>
+                <button id="reset-btn" class="action-btn" onclick="resetQuiz()">Resetar Quiz</button>
+            </div>
+            <div id="review-container"></div>
+        </div>
+    </div>
+
+    <script src="questions.js"></script>
+    <script src="quiz-config.js"></script>
+    <script src="script.js"></script>
+    
+</body>
+</html>

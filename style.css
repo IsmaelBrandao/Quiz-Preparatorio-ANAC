@@ -1,0 +1,548 @@
+/* ========================================================================= */
+/* ARQUIVO: style.css (COMPLETO) */
+/* TEMA: Opção 2 - Cockpit Noturno (Dark Mode) */
+/* ========================================================================= */
+
+/* Importando Fontes */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Share+Tech+Mono&display=swap');
+
+/* Reset e Configurações Globais */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    /* Fundo: Azul-marinho "noite" */
+    background-color: #0d1a2a; 
+    color: #E0E0E0; /* Texto global claro */
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Alinhar ao topo */
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.hidden { 
+    display: none !important; 
+}
+
+/* 1. ESTILOS DO MENU PRINCIPAL (GRID) */
+
+#menu-container {
+    width: 100%;
+    max-width: 1300px;
+}
+
+#menu-container h1 {
+    font-family: 'Share Tech Mono', monospace; 
+    color: #FFFFFF; /* Branco */
+    font-size: 2.8em;
+    text-align: center;
+    margin-bottom: 10px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+#menu-container .subtitle {
+    text-align: center;
+    color: #aab4c2; /* Cinza-azulado claro */
+    margin-bottom: 40px;
+    font-size: 1.2em;
+    font-weight: 400;
+}
+
+.module-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 25px;
+    width: 100%;
+}
+
+.module-card {
+    /* Fundo: Cor de "painel" */
+    background-color: #1a2c40; 
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    padding: 25px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* Borda temática no topo */
+    border-top: 6px solid; 
+    display: flex;
+    flex-direction: column;
+}
+
+.module-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+}
+
+.card-icon {
+    font-size: 3em;
+    margin-bottom: 15px;
+}
+
+.module-card h3 {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 1.6em;
+    color: #FFFFFF; /* Título do card branco */
+    margin-bottom: 10px;
+    min-height: 40px; 
+}
+
+.module-card p {
+    font-size: 1em;
+    color: #b0c4de; /* Texto do card mais suave */
+    margin-bottom: 25px;
+    flex-grow: 1; /* Empurra os botões para baixo */
+}
+
+.card-buttons {
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 10px;
+    justify-content: center;
+}
+
+.card-buttons button {
+    background-color: #0056b3; /* Cor base */
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 6px;
+    font-size: 0.95em;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.2s;
+    border-bottom: 3px solid rgba(0, 0, 0, 0.2);
+}
+
+.card-buttons button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-buttons button:active {
+    transform: translateY(0);
+    border-bottom-width: 1px;
+}
+
+/* Cores Temáticas dos Módulos (Bordas e Botões) */
+.aeronauta { border-color: #0056b3; }
+.fisiologia { border-color: #00695c; }
+.emergencia { border-color: #c62828; }
+.combate-fogo { border-color: #ef6c00; }
+.meteorologia { border-color: #2196f3; }
+.emergencia-detalhada { border-color: #5E35B1; }
+.sobrevivencia { border-color: #2e7d32; }
+.rpa-prep { border-color: #6a1b9a; }
+.fisiologia-anac { border-color: #00695c; }
+.fisiologia-anac_2 { border-color: #04ad9a; }
+
+.aeronauta .card-buttons button { background-color: #0056b3; }
+.fisiologia .card-buttons button { background-color: #00695c; }
+.emergencia .card-buttons button { background-color: #c62828; }
+.combate-fogo .card-buttons button { background-color: #ef6c00; }
+.meteorologia .card-buttons button { background-color: #2196f3; }
+.emergencia-detalhada .card-buttons button { background-color: #5E35B1; }
+.sobrevivencia .card-buttons button { background-color: #2e7d32; }
+.rpa-prep .card-buttons button { background-color: #6a1b9a; }
+.fisiologia-anac .card-buttons button { background-color: #00695c; }
+.fisiologia-anac_2 .card-buttons button { background-color: #04ad9a; }
+
+
+/* 2. ESTILOS DA TELA DO QUIZ */
+
+#quiz-container {
+    width: 100%;
+    max-width: 800px;
+    background-color: #1a2c40; /* Cor de "painel" */
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    overflow: hidden; /* Para o header arredondado */
+}
+
+#quiz-header {
+    background-color: #003366; /* Azul escuro padrão */
+    color: white;
+    padding: 15px 20px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    position: relative;
+    border-bottom: 4px solid #D4AF37; /* Detalhe dourado */
+}
+
+#quiz-header h1 {
+    font-family: 'Share Tech Mono', monospace;
+    margin: 0;
+    font-size: 1.6em;
+    flex-grow: 1;
+    padding: 0 45px; /* Espaço para o botão de menu */
+}
+
+#quiz-header h1 span {
+    font-weight: 400;
+    font-size: 0.7em;
+    opacity: 0.8;
+    display: block;
+    margin-top: 5px;
+}
+
+#header-back-to-menu-btn {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    color: white;
+    width: 40px; 
+    height: 40px;
+    border-radius: 50%;
+    font-size: 22px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.2s;
+}
+#header-back-to-menu-btn:hover { 
+    background: rgba(255, 255, 255, 0.3); 
+}
+
+/* Cores temáticas do Header do Quiz */
+#quiz-header.aeronauta { background-color: #0056b3; }
+#quiz-header.fisiologia { background-color: #00695c; }
+#quiz-header.emergencia { background-color: #c62828; }
+#quiz-header.combate-fogo { background-color: #ef6c00; }
+#quiz-header.meteorologia { background-color: #2196f3; }
+#quiz-header.emergencia-detalhada { background-color: #5E35B1; }
+#quiz-header.sobrevivencia { background-color: #2e7d32; }
+#quiz-header.rpa-prep { background-color: #6a1b9a; }
+#quiz-header.fisiologia-anac { background-color: #00695c; }
+#quiz-header.fisiologia-anac_2 { background-color: #04ad9a; }
+#quiz-header.level-2 { border-color: #FFC107; } /* Nível 2 tem borda dourada */
+
+
+/* Barra de Progresso */
+#progress-container {
+    width: 100%;
+    background-color: #0d1a2a; /* Fundo escuro da barra */
+}
+#progress-bar {
+    height: 10px;
+    width: 0%;
+    background-color: #0056b3; /* Cor base */
+    transition: width 0.3s ease-in-out;
+    border-radius: 0 2px 2px 0;
+}
+
+/* Cores temáticas da Barra de Progresso */
+#progress-bar.aeronauta { background-color: #0056b3; }
+#progress-bar.fisiologia { background-color: #00695c; }
+#progress-bar.emergencia { background-color: #c62828; }
+#progress-bar.combate-fogo { background-color: #ef6c00; }
+#progress-bar.meteorologia { background-color: #2196f3; }
+#progress-bar.emergencia-detalhada { background-color: #5E35B1; }
+#progress-bar.sobrevivencia { background-color: #2e7d32; }
+#progress-bar.rpa-prep { background-color: #6a1b9a; }
+#progress-bar.fisiologia-anac { background-color: #00695c; }
+#progress-bar.fisiologia-anac_2 { background-color: #04ad9a; }
+#progress-bar.level-2 { background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0.2) 75%, transparent 75%, transparent); }
+
+
+/* Corpo do Quiz (Questões e Opções) */
+.question-block {
+    padding: 25px 30px;
+    border-bottom: 1px solid #2a415a;
+}
+.question-block h3 {
+    margin-top: 0;
+    font-size: 1.2em;
+    color: #FFFFFF; /* Pergunta branca */
+    line-height: 1.5;
+}
+
+.options {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+}
+.options li {
+    background-color: #2a415a; /* Opções mais escuras */
+    border: 2px solid #4a6588; /* Borda escura */
+    color: #E0E0E0; /* Texto claro */
+    border-radius: 8px;
+    margin-bottom: 10px;
+    padding: 12px 15px;
+    cursor: pointer;
+    transition: background-color 0.2s, border-color 0.2s, transform 0.2s;
+    font-size: 1em;
+}
+.options li:hover {
+    background-color: #3b5471;
+    border-color: #FFC107; /* Dourado no hover */
+}
+.options li.selected {
+    background-color: #3b5471;
+    border-color: #FFC107; /* Dourado na seleção */
+    font-weight: 500;
+    transform: scale(1.02);
+    color: #FFFFFF;
+}
+.options input[type="radio"] {
+    display: none;
+}
+.options.disabled {
+    pointer-events: none;
+}
+
+/* Feedback de Resposta (Dark Mode) */
+.options li.correct-feedback {
+    border-color: #28a745;
+    background-color: #1c3a2f; /* Fundo verde escuro */
+    font-weight: 700;
+    color: #FFFFFF;
+}
+.options li.incorrect-feedback {
+    border-color: #dc3545;
+    background-color: #4a2a32; /* Fundo vermelho escuro */
+    font-weight: 700;
+    color: #FFFFFF;
+}
+.options li.actual-answer {
+    border-color: #28a745;
+    background-color: #1c3a2f; /* Fundo verde escuro */
+    font-weight: 500;
+    opacity: 0.8;
+}
+
+/* Navegação e Botões */
+#navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #0d1a2a; /* Fundo da navegação */
+    border-top: 1px solid #2a415a;
+}
+.nav-btn, .action-btn {
+    font-family: 'Roboto', sans-serif;
+    background-color: #0056b3;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 700;
+    flex-shrink: 0;
+    min-width: 120px;
+    text-align: center;
+    transition: background-color 0.2s, transform 0.2s;
+    border-bottom: 3px solid #003366;
+}
+.nav-btn:hover, .action-btn:hover {
+    transform: translateY(-2px);
+}
+.nav-btn:active, .action-btn:active {
+    transform: translateY(0);
+    border-bottom-width: 1px;
+}
+
+/* Botões de navegação com cores temáticas */
+#navigation .nav-btn { background-color: #FFC107; color: #001f3f; border-bottom-color: #b88b00; }
+#navigation .nav-btn:hover { background-color: #ffd761; }
+
+#prev-btn, #back-to-menu-btn-results {
+    background-color: #6c757d;
+    border-bottom-color: #495057;
+    color: #FFFFFF;
+}
+#prev-btn:hover { background-color: #5a6268; }
+#back-to-menu-btn-results:hover { background-color: #5a6268; }
+
+#reset-btn {
+    background-color: #dc3545;
+    border-bottom-color: #a71d2a;
+    margin-left: 10px;
+    color: #FFFFFF;
+}
+#reset-btn:hover { background-color: #c82333; }
+
+#question-counter {
+    font-size: 1em;
+    color: #E0E0E0; /* Texto claro */
+    font-weight: 500;
+    flex-grow: 1;
+    text-align: center;
+}
+
+/* 3. ESTILOS DA TELA DE RESULTADOS */
+#results {
+    padding: 30px 20px;
+    text-align: center;
+    background-color: #1a2c40; /* Fundo do painel */
+}
+#results h2 {
+    color: #FFFFFF;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 2em;
+}
+#results p {
+    font-size: 1.4em;
+    font-weight: bold;
+    color: #28a745; /* Verde para sucesso */
+    margin-top: 10px;
+}
+#results p.low-score {
+    color: #dc3545; /* Vermelho para nota baixa */
+}
+
+#action-buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+#review-container {
+    margin-top: 30px;
+    max-height: 400px;
+    overflow-y: auto;
+    border-top: 2px solid #2a415a;
+    padding-top: 20px;
+}
+.review-question {
+    text-align: left;
+    margin-bottom: 20px;
+    padding: 15px;
+    border-radius: 8px;
+    background-color: #2a415a; /* Fundo escuro */
+    border-left: 5px solid;
+}
+.review-question.correct {
+    border-left-color: #28a745;
+}
+.review-question.incorrect {
+    border-left-color: #dc3545;
+}
+.review-question p {
+    font-size: 1em;
+    margin: 0 0 10px 0;
+    font-weight: 500;
+    color: #FFFFFF; /* Texto da pergunta claro */
+}
+.review-answer {
+    font-style: italic;
+    color: #b0c4de;
+}
+.review-answer .correct-answer {
+    color: #3ee062; /* Verde mais brilhante */
+    font-weight: bold;
+}
+.review-answer .wrong-answer {
+    color: #ff8a8a; /* Vermelho mais brilhante */
+    text-decoration: line-through;
+}
+
+/* 4. RESPONSIVIDADE (Mantida) */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+
+    #menu-container h1 {
+        font-size: 2em;
+    }
+    #menu-container .subtitle {
+        font-size: 1em;
+    }
+
+    .question-block {
+        padding: 20px 15px;
+    }
+    .question-block h3 {
+        font-size: 1.1em;
+    }
+}
+
+@media (max-width: 600px) {
+    body {
+        padding: 0;
+        align-items: flex-start;
+    }
+
+    #menu-container, #quiz-container {
+        border-radius: 0;
+        min-height: 100vh;
+        box-shadow: none;
+    }
+
+    #menu-container {
+        padding: 15px;
+    }
+
+    #menu-container h1 {
+        font-size: 1.8em;
+    }
+
+    .module-grid {
+        grid-template-columns: 1fr; /* 1 coluna em telas pequenas */
+        gap: 15px;
+    }
+    
+    #quiz-header h1 {
+        font-size: 1.2em;
+        padding: 0 40px;
+    }
+    #header-back-to-menu-btn {
+        width: 35px;
+        height: 35px;
+        font-size: 18px;
+        left: 10px;
+    }
+
+    .question-block {
+        padding: 15px;
+    }
+    .question-block h3 {
+        font-size: 1em;
+    }
+    .options li {
+        padding: 10px 12px;
+        font-size: 0.9em;
+    }
+
+    #navigation {
+        padding: 10px;
+        gap: 8px;
+        flex-wrap: wrap;
+    }
+    .nav-btn, .action-btn {
+        min-width: 100px;
+        padding: 10px;
+        font-size: 0.9em;
+        flex-basis: 120px;
+        flex-grow: 1;
+    }
+    #question-counter {
+        flex-basis: 100%;
+        order: -1; /* Coloca o contador em cima */
+        margin-bottom: 5px;
+    }
+
+    #results {
+        padding: 20px 15px;
+    }
+
+    #action-buttons {
+        flex-direction: column;
+        gap: 10px;
+    }
+    #reset-btn {
+        margin-left: 0;
+    }
+}
