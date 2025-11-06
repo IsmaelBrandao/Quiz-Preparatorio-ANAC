@@ -2,7 +2,7 @@
 
 <p align="center">
   <b>Um quiz dinâmico e interativo para o estudo das disciplinas exigidas pela ANAC</b><br>
-  <sub>Desenvolvido por <a href="https://ismaelbrandao.github.io/Quiz-Preparatorio-ANAC">Ismael Brandão</a></sub>
+  <sub>Desenvolvido por <a href="https://github.com/IsmaelBrandao">Ismael Brandão</a></sub>
 </p>
 
 ---
@@ -22,7 +22,7 @@ O **Quiz Interativo ANAC** é uma ferramenta educativa desenvolvida para ajudar 
 
 A plataforma apresenta **módulos temáticos com quizzes interativos**, divididos em **níveis de dificuldade**, para facilitar o aprendizado de forma leve e envolvente.
 
-**LINK:** https://ismaelbrandao.github.io/Quiz-Educacional-de-Avia-o-Preparat-rio-ANAC
+**LINK:** https://ismaelbrandao.github.io/Quiz-Preparatorio-ANAC
 
 ---
 
