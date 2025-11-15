@@ -546,3 +546,26 @@ body {
         margin-left: 0;
     }
 }
+
+/* ========================================================================= */
+/* COLE ESTE BLOCO NO FINAL DO SEU 'style.css' */
+/* ========================================================================= */
+
+/* Cores Temáticas dos Módulos (NOVOS) */
+.seg-voo { border-color: #FFB300; } /* Amarelo/Ouro */
+.sis-avcivil { border-color: #546E7A; } /* Cinza-Azulado */
+.direito-aero { border-color: #8D6E63; } /* Marrom (Lei) */
+
+.seg-voo .card-buttons button { background-color: #FFB300; }
+.sis-avcivil .card-buttons button { background-color: #546E7A; }
+.direito-aero .card-buttons button { background-color: #8D6E63; }
+
+/* Cores do Header do Quiz (NOVOS) */
+#quiz-header.seg-voo { background-color: #FFB300; }
+#quiz-header.sis-avcivil { background-color: #546E7A; }
+#quiz-header.direito-aero { background-color: #8D6E63; }
+
+/* Cores da Barra de Progresso (NOVOS) */
+#progress-bar.seg-voo { background-color: #FFB300; }
+#progress-bar.sis-avcivil { background-color: #546E7A; }
+#progress-bar.direito-aero { background-color: #8D6E63; }

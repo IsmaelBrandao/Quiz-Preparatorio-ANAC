@@ -146,5 +146,51 @@ const allQuizInfo = {
         description: 'Simulado com questões essenciais de Regulamentação e Direito para a prova de RPA.',
         className: 'rpa-prep',
         questions: quizDataProvaRPA
+    },
+    'seg_voo_n1': {
+        title: 'Segurança de Voo',
+        subtitle: 'Nível 1 - Conceitos SVO',
+        description: 'Conceitos de SVO, filosofia S-G-S-O, gerenciamento de risco e prevenção de acidentes.',
+        className: 'seg-voo',
+        questions: quizDataSegVooN1
+    },
+    'seg_voo_n2': {
+        title: 'Segurança de Voo',
+        subtitle: 'Nível 2 - Fatores e Investigação',
+        description: 'Aprofunde-se em relatórios, CENIPA, e os fatores humanos, materiais e operacionais.',
+        className: 'seg-voo level-2',
+        questions: quizDataSegVooN2
+    },
+    
+    // Sistema de Aviação Civil (NOVOS)
+    'sis_avcivil_n1': {
+        title: 'Sistema de Aviação Civil',
+        subtitle: 'Nível 1 - Organismos',
+        description: 'Estrutura do SISAC, ICAO, ANAC, DECEA, e a organização aeronáutica nacional e internacional.',
+        className: 'sis-avcivil',
+        questions: quizDataSistAvCivilN1
+    },
+    'sis_avcivil_n2': {
+        title: 'Sistema de Aviação Civil',
+        subtitle: 'Nível 2 - Infraestrutura e Regras',
+        description: 'Entenda a infraestrutura aeroportuária, serviços de tráfego aéreo e regras do ar.',
+        className: 'sis-avcivil level-2',
+        questions: quizDataSistAvCivilN2
+    },
+    
+    // Direito Aeronáutico (NOVOS)
+    'direito_aero_n1': {
+        title: 'Direito Aeronáutico',
+        subtitle: 'Nível 1 - CBAER',
+        description: 'Estude o Código Brasileiro de Aeronáutica (CBAER), licenças, certificados e aeronaves.',
+        className: 'direito-aero',
+        questions: quizDataDireitoAeronauticoN1
+    },
+    'direito_aero_n2': {
+        title: 'Direito Aeronáutico',
+        subtitle: 'Nível 2 - Contratos e Responsabilidades',
+        description: 'Foco em contratos de transporte aéreo, responsabilidade civil e direito internacional.',
+        className: 'direito-aero level-2',
+        questions: quizDataDireitoAeronauticoN2
     }
 };
