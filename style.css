@@ -569,3 +569,15 @@ body {
 #progress-bar.seg-voo { background-color: #FFB300; }
 #progress-bar.sis-avcivil { background-color: #546E7A; }
 #progress-bar.direito-aero { background-color: #8D6E63; }
+
+/* Navegação Aérea (Índigo) */
+.navegacao { border-color: #3949AB; }
+.navegacao .card-buttons button { background-color: #3949AB; }
+#quiz-header.navegacao { background-color: #3949AB; }
+#progress-bar.navegacao { background-color: #3949AB; }
+
+/* Conhecimentos Gerais - CGA (Laranja Escuro/Mecânico) */
+.cga { border-color: #D84315; }
+.cga .card-buttons button { background-color: #D84315; }
+#quiz-header.cga { background-color: #D84315; }
+#progress-bar.cga { background-color: #D84315; }

@@ -192,5 +192,39 @@ const allQuizInfo = {
         description: 'Foco em contratos de transporte aéreo, responsabilidade civil e direito internacional.',
         className: 'direito-aero level-2',
         questions: quizDataDireitoAeronauticoN2
+    },
+
+    // Navegação Aérea (NOVOS)
+    'navegacao_n1': {
+        title: 'Navegação Aérea',
+        subtitle: 'Nível 1 - Conceitos Básicos',
+        description: 'Magnetismo, orientação, coordenadas geográficas e conceitos fundamentais de navegação.',
+        className: 'navegacao',
+        questions: quizNavN1
+    },
+
+    'navegacao_n2': {
+        title: 'Navegação Aérea',
+        subtitle: 'Nível 2 - Cálculos e Fusos',
+        description: 'Cálculos de conversão de unidades, fusos horários, tempo e pé de galinha.',
+        className: 'navegacao level-2',
+        questions: quizNavN2
+    },
+
+    // Conhecimentos Gerais de Aeronaves - CGA (NOVOS)
+    'cga_n1': {
+        title: 'Conhecimentos Gerais (CGA)',
+        subtitle: 'Nível 1 - Estruturas',
+        description: 'Estruturas da aeronave, componentes básicos, definições e classificação.',
+        className: 'cga',
+        questions: quizCGANivel1
+    },
+    
+    'cga_n2': {
+        title: 'Conhecimentos Gerais (CGA)',
+        subtitle: 'Nível 2 - Teoria e Sistemas',
+        description: 'Teoria de voo, aerodinâmica, motores, instrumentos e sistemas da aeronave.',
+        className: 'cga level-2',
+        questions: quizCGANivel2
     }
 };
