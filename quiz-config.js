@@ -238,23 +238,18 @@ const allQuizInfo = {
         composition: [
             { 
                 // Matéria 1: Emergência a Bordo
-                count: 5, 
+                count: 7, 
                 sources: [quizDataEmergenciaN1, quizDataEmergenciaN2] 
             },
             { 
                 // Matéria 2: Sobrevivência (Foco em Peçonhentos)
-                count: 5, 
+                count: 7, 
                 sources: [quizDataAnimaisPeconhentos] 
             },
             { 
                 // Matéria 3: Combate ao Fogo
-                count: 5, 
+                count: 6, 
                 sources: [quizDataCombateFogo] 
-            },
-            { 
-                // Matéria 4: Fatores Humanos (Segurança de Voo)
-                count: 5, 
-                sources: [quizDataSegVooN1, quizDataSegVooN2] 
             }
         ]
     },
