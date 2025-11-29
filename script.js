@@ -1,5 +1,5 @@
 // =========================================================================
-// ARQUIVO: script.js (COMPLETO)
+// ARQUIVO: script.js (ATUALIZADO PARA SIMULADOS ALEATÓRIOS)
 // (Este arquivo DEVE ser carregado DEPOIS de questions.js e quiz-config.js)
 // =========================================================================
 
@@ -23,12 +23,23 @@ let userAnswers = [];
 let currentLevel = '';
 
 /**
- * Função startQuiz simplificada.
- * Ela lê os dados do 'allQuizInfo' (que está em quiz-config.js)
- * para configurar e iniciar o quiz.
+ * NOVA FUNÇÃO: Embaralhar Arrays (Fisher-Yates Shuffle)
+ * Necessária para misturar as perguntas nos simulados.
+ */
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+}
+
+/**
+ * Função startQuiz ATUALIZADA
+ * Agora ela verifica se o quiz é "fixo" ou se precisa ser "montado" (aleatório).
  */
 function startQuiz(level) {
-    // Busca as informações do quiz no objeto mestre
+    // Busca as informações do quiz no objeto mestre (quiz-config.js)
     const quizInfo = allQuizInfo[level];
     
     if (!quizInfo) {
@@ -38,23 +49,68 @@ function startQuiz(level) {
     }
 
     currentLevel = level;
-    currentQuizData = quizInfo.questions;
+    
+    // Define os textos e classes visuais (Mantido igual)
     quizTitle.innerHTML = `${quizInfo.title} <span>${quizInfo.subtitle}</span>`;
     resultsTitle.innerText = `Quiz ${quizInfo.title} (${quizInfo.subtitle}) Finalizado!`;
-    
-    // Define as classes temáticas para o header e a barra de progresso
     quizHeader.className = quizInfo.className;
     progressBar.className = quizInfo.className;
 
-    // Oculta o menu e exibe o quiz
+    // --- NOVA LÓGICA DE SIMULADO ---
+    // 1. Verifica se já existe uma prova gerada salva no navegador para este nível.
+    // Isso garante que se o aluno der F5, as perguntas aleatórias continuam as mesmas.
+    const savedQuizData = localStorage.getItem(`quizDataGenerated_${currentLevel}`);
+    
+    if (savedQuizData) {
+        // Se existe prova salva, carregamos ela.
+        currentQuizData = JSON.parse(savedQuizData);
+    } else {
+        // Se não existe, vamos verificar como montar o quiz.
+        
+        if (quizInfo.composition) {
+            // É UM SIMULADO COMPOSTO (ALEATÓRIO)!
+            currentQuizData = [];
+            
+            // Para cada bloco definido na configuração...
+            quizInfo.composition.forEach(block => {
+                // 1. Junta todas as questões das fontes desse bloco num "balde" único
+                let pool = [];
+                block.sources.forEach(sourceArray => {
+                    if(sourceArray) pool = pool.concat(sourceArray);
+                });
+
+                // 2. Embaralha esse balde
+                shuffleArray(pool);
+
+                // 3. Pega só a quantidade que a gente quer (ex: 5 questões)
+                const selectedQuestions = pool.slice(0, block.count);
+                
+                // 4. Adiciona na prova final
+                currentQuizData = currentQuizData.concat(selectedQuestions);
+            });
+
+            // Dá mais uma embaralhada geral na prova final para misturar as matérias
+            shuffleArray(currentQuizData);
+
+            // Salva essa prova gerada no navegador
+            localStorage.setItem(`quizDataGenerated_${currentLevel}`, JSON.stringify(currentQuizData));
+
+        } else {
+            // É UM QUIZ NORMAL (FIXO)
+            // Usa o array direto do arquivo, como sempre foi.
+            currentQuizData = quizInfo.questions;
+        }
+    }
+
+    // Oculta o menu e exibe o quiz (Mantido igual)
     menuContainer.classList.add('hidden');
     quizContainer.classList.remove('hidden');
     resultsContainer.classList.add('hidden');
-    quizBody.classList.remove('hidden'); // Garante que o corpo do quiz esteja visível
+    quizBody.classList.remove('hidden'); 
     navigation.classList.remove('hidden');
 
-    loadProgress(); // Carrega o progresso salvo para este nível
-    showQuestion(); // Exibe a primeira questão ou a questão salva
+    loadProgress(); // Carrega o progresso salvo (respostas)
+    showQuestion(); // Exibe a questão
 }
 
 function backToMenu() {
@@ -213,7 +269,7 @@ function loadProgress() {
             userAnswers = progress.answers;
             currentQuestion = progress.currentQuestion || 0;
         } else {
-            // Se o quiz mudou (ex: mais perguntas), reseta o progresso
+            // Se o quiz mudou, reseta o progresso
             userAnswers = Array(currentQuizData.length).fill(undefined);
             currentQuestion = 0;
         }
@@ -224,9 +280,19 @@ function loadProgress() {
     }
 }
 
+/**
+ * Função resetQuiz ATUALIZADA
+ * Agora ela também apaga a prova aleatória gerada, forçando o sorteio de novas perguntas.
+ */
 function resetQuiz() {
-    if (confirm('Tem certeza de que deseja resetar o progresso deste quiz? Suas respostas serão apagadas.')) {
+    if (confirm('Tem certeza de que deseja resetar? Se for um simulado, NOVAS perguntas aleatórias serão geradas.')) {
+        // Remove as respostas salvas
         localStorage.removeItem(`quizProgress_${currentLevel}`);
+        
+        // Remove a prova gerada (o "balde" de perguntas sorteadas)
+        // Isso obriga o startQuiz a sortear tudo de novo
+        localStorage.removeItem(`quizDataGenerated_${currentLevel}`);
+        
         // Reinicia o quiz atual
         startQuiz(currentLevel);
     }

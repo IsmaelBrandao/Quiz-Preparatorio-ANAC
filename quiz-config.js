@@ -226,5 +226,115 @@ const allQuizInfo = {
         description: 'Teoria de voo, aerodinâmica, motores, instrumentos e sistemas da aeronave.',
         className: 'cga level-2',
         questions: quizCGANivel2
+    },
+    // === SIMULADO BLOCO 1 (20 Questões - Balanceado) ===
+    'simulado_bloco_1_rapido': {
+        title: 'Simulado Bloco 1',
+        subtitle: '20 Questões',
+        description: 'Simulado oficial do Bloco 1 com 5 questões sorteadas de cada matéria: Emergência, Sobrevivência, Combate ao fogo e Fatores Humanos na Aviação Civil.',
+        className: 'simulado-rapido',
+        
+        // CONFIGURAÇÃO BALANCEADA (5 de cada):
+        composition: [
+            { 
+                // Matéria 1: Emergência a Bordo
+                count: 5, 
+                sources: [quizDataEmergenciaN1, quizDataEmergenciaN2] 
+            },
+            { 
+                // Matéria 2: Sobrevivência (Foco em Peçonhentos)
+                count: 5, 
+                sources: [quizDataAnimaisPeconhentos] 
+            },
+            { 
+                // Matéria 3: Combate ao Fogo
+                count: 5, 
+                sources: [quizDataCombateFogo] 
+            },
+            { 
+                // Matéria 4: Fatores Humanos (Segurança de Voo)
+                count: 5, 
+                sources: [quizDataSegVooN1, quizDataSegVooN2] 
+            }
+        ]
+    },
+    // === SIMULADO BLOCO 2 (20 Questões - Balanceado) ===
+    'simulado_bloco_2_rapido': {
+        title: 'Simulado Bloco 2',
+        subtitle: '20 Questões - Sorteio',
+        description: 'Simulado oficial do Bloco 2: Aeronauta, Regulamentação Geral, Sistema de Aviação e Segurança de Voo.',
+        className: 'simulado-bloco-2',
+        
+        // CONFIGURAÇÃO BALANCEADA (5 de cada):
+        composition: [
+            { 
+                // Matéria 1: Regulamentação da Profissão do Aeronauta
+                count: 5, 
+                sources: [quizDataAeronautaN1, quizDataAeronautaN2] 
+            },
+            { 
+                // Matéria 2: Regulamentação da Aviação Civil (Direito)
+                count: 5, 
+                sources: [quizDataDireitoAeronauticoN1, quizDataDireitoAeronauticoN2] 
+            },
+            { 
+                // Matéria 3: Sistema de Aviação Civil
+                count: 5, 
+                sources: [quizDataSistAvCivilN1, quizDataSistAvCivilN2] 
+            },
+            { 
+                // Matéria 4: Segurança de Voo
+                count: 5, 
+                sources: [quizDataSegVooN1, quizDataSegVooN2] 
+            }
+        ]
+    },
+    // === SIMULADO BLOCO 3 (20 Questões - Saúde) ===
+    'simulado_bloco_3_rapido': {
+        title: 'Simulado Bloco 3',
+        subtitle: '20 Questões - Sorteio',
+        description: 'Simulado oficial do Bloco 3: Fisiologia de Voo e Primeiros Socorros na Aviação Civil.',
+        className: 'simulado-bloco-3',
+        
+        // COMPOSIÇÃO (10 de cada):
+        composition: [
+            { 
+                // Matéria 1: Aspectos Fisiológicos
+                count: 10, 
+                sources: [quizDataFisiologiaN1, quizDataFisiologiaN2, quizDataAspectosFisiologicosN1] 
+            },
+            { 
+                // Matéria 2: Primeiros Socorros
+                count: 10, 
+                sources: [quizDataPrimeirosSocorros, quizDataPrimeirosSocorrosN2] 
+            }
+        ]
+    },
+
+    // === SIMULADO BLOCO 4 (20 Questões - Técnico) ===
+    'simulado_bloco_4_rapido': {
+        title: 'Simulado Bloco 4',
+        subtitle: '20 Questões - Sorteio',
+        description: 'Simulado oficial do Bloco 4: Conhecimentos Gerais (CGA), Meteorologia e Navegação Aérea.',
+        className: 'simulado-bloco-4',
+        
+        // COMPOSIÇÃO (7 + 7 + 6 = 20):
+        composition: [
+            { 
+                // Matéria 1: Meteorologia
+                count: 7, 
+                sources: [quizDataMeteorologiaN1, quizDataMeteorologiaN2] 
+            },
+            { 
+                // Matéria 2: Navegação Aérea
+                count: 7, 
+                sources: [quizNavN1, quizNavN2] 
+            },
+            { 
+                // Matéria 3: Conhecimentos Gerais (CGA)
+                count: 6, 
+                sources: [quizCGANivel1, quizCGANivel2] 
+            }
+        ]
     }
 };
